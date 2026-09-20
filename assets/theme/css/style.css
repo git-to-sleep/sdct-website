@@ -232,7 +232,7 @@ section .mbr-background-video-preview {
   width: 100%;
 }
 
-@media (min-width: 1881px) {
+@media (min-width: 992px) {
   .media-container-row {
     flex-wrap: nowrap;
   }
@@ -285,7 +285,7 @@ iframe {
   width: 100%;
 }
 
-@media (max-width: 1800px) {
+@media (max-width: 991px) {
   .media-size-item {
     width: auto !important;
   }
@@ -551,7 +551,7 @@ nav .mbr-section-btn {
     display: -ms-flexbox;
   }
 }
-@media (max-width: 991px) {
+@media (max-width: 1300px) {
   .menu .navbar-collapse {
     max-height: 93.5vh;
   }
