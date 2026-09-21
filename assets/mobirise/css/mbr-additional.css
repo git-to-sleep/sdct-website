@@ -5142,3 +5142,44 @@ a {
     display: flex !important;
   }
 }
+/* FIX NAVBAR BREAKPOINT AND BRAND ALIGNMENT VIA CSS ONLY */
+@media (max-width: 1300px) {
+  /* Force hamburger button to display and align right */
+  html body .navbar-expand-lg .navbar-toggler {
+    display: inline-flex !important;
+    margin-left: auto !important;
+  }
+  
+  /* Hide desktop menu by default below 1300px */
+  html body .navbar-expand-lg .navbar-collapse {
+    display: none !important;
+    width: 100% !important;
+  }
+
+  /* Show menu when opened */
+  html body .navbar-expand-lg .navbar-collapse.show {
+    display: block !important;
+  }
+
+  /* Pin logo to far left and hamburger to far right */
+  html body .navbar-dropdown .container,
+  html body .navbar-dropdown .container-fluid {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+  }
+
+  html body .navbar-dropdown .navbar-brand {
+    margin-right: auto !important;
+  }
+}
+
+@media (min-width: 1301px) {
+  html body .navbar-expand-lg .navbar-toggler {
+    display: none !important;
+  }
+
+  html body .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+  }
+}
