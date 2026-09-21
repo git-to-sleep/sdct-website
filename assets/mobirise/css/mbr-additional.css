@@ -5268,7 +5268,7 @@ a {
     margin: 0.35rem 0 !important;
   }
 }
-/* PURE CSS OVERRIDE (NO DELAY, CLEAN OPEN/CLOSE) */
+/* CLEAN CSS OVERRIDE (STRICT CONTAINER CLIPPING) */
 @media (max-width: 1300px) {
   /* Layout container setup */
   html body .navbar-dropdown .container,
@@ -5294,34 +5294,9 @@ a {
     order: 2 !important;
   }
 
-  /* CLOSED STATE: Clip menu cleanly without removing inner flex layout */
-  html body .navbar-expand-lg .navbar-collapse.collapse:not(.show) {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    width: 100% !important;
-    flex-basis: 100% !important;
-    order: 3 !important;
-
-    /* Instant zero-height clip to avoid closing jitter */
-    max-height: 0 !important;
-    opacity: 0 !important;
-    visibility: hidden !important;
-    pointer-events: none !important;
-    clip-path: inset(0 0 100% 0) !important;
-    transform: translateY(-8px) !important;
-
-    padding: 0 1.5rem !important;
-    margin-top: 0 !important;
-    transition: max-height 0.25s ease, 
-                clip-path 0.25s ease, 
-                opacity 0.2s ease, 
-                transform 0.25s ease, 
-                visibility 0.25s,
-                padding 0.25s ease !important;
-  }
-
-  /* INTERMEDIATE CLOSING/OPENING STATE (.collapsing): Override JS lag */
+  /* BASE MENU CONTAINER (COLLAPSED / CLOSING STATE) */
+  html body .navbar-expand-lg .navbar-collapse,
+  html body .navbar-expand-lg .navbar-collapse.collapse:not(.show),
   html body .navbar-expand-lg .navbar-collapse.collapsing {
     display: flex !important;
     flex-direction: column !important;
@@ -5329,49 +5304,50 @@ a {
     width: 100% !important;
     flex-basis: 100% !important;
     order: 3 !important;
-    height: auto !important; /* Block Mobirise inline pixel height overrides */
-    
+
+    /* Strict overflow hidden stops links/buttons from leaking outside card */
+    overflow: hidden !important;
+
+    /* Zero height state */
+    max-height: 0 !important;
+    opacity: 0 !important;
+    visibility: hidden !important;
+    pointer-events: none !important;
+
+    /* Styling */
     background-color: #ffffff !important;
     border-radius: 20px !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
-    
-    transition: max-height 0.25s ease, 
-                clip-path 0.25s ease, 
-                opacity 0.2s ease, 
-                transform 0.25s ease !important;
+    padding: 0 1.5rem !important;
+    margin-top: 0 !important;
+
+    /* Smooth collapse timing */
+    transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s ease-out,
+                padding 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                margin-top 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0.3s !important;
   }
 
-  /* OPENED STATE (.show): Smoothly reveal card */
+  /* OPENED STATE (.show) */
   html body .navbar-expand-lg .navbar-collapse.show {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-end !important;
-    width: 100% !important;
-    flex-basis: 100% !important;
-    order: 3 !important;
-
     max-height: 500px !important;
     opacity: 1 !important;
     visibility: visible !important;
     pointer-events: auto !important;
-    clip-path: inset(0 0 0 0) !important;
-    transform: translateY(0) !important;
 
-    background-color: #ffffff !important;
-    border-radius: 20px !important;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12) !important;
     padding: 1.5rem !important;
     margin-top: 1rem !important;
 
-    transition: max-height 0.3s ease, 
-                clip-path 0.3s ease, 
-                opacity 0.25s ease, 
-                transform 0.3s ease, 
-                visibility 0.3s,
-                padding 0.3s ease !important;
+    /* Immediate visibility activation when opening */
+    transition: max-height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.3s ease-in,
+                padding 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                margin-top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                visibility 0s linear 0s !important;
   }
 
-  /* INNER ELEMENTS: Prevent text shifting during transitions */
+  /* INNER ELEMENTS */
   html body .navbar-expand-lg .navbar-collapse .navbar-nav {
     display: flex !important;
     flex-direction: column !important;
@@ -5385,7 +5361,7 @@ a {
     width: 100% !important;
     text-align: right !important;
     padding: 0.35rem 0 !important;
-    white-space: nowrap !important; /* Keep links from wrapping during transition */
+    white-space: nowrap !important;
   }
 
   html body .navbar-expand-lg .navbar-collapse .nav-link {
