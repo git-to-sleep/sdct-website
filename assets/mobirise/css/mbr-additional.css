@@ -5183,9 +5183,9 @@ a {
     display: flex !important;
   }
 }
-/* CLEAN WORKING HAMBURGER DROPDOWN OVERRIDE */
+/* ALL-IN-ONE HAMBURGER DROPDOWN OVERRIDE (300PX TO 1300PX) */
 @media (max-width: 1300px) {
-  /* Ensure container flexes correctly without clipping content */
+  /* Container layout */
   html body .navbar-dropdown .container,
   html body .navbar-dropdown .container-fluid {
     display: flex !important;
@@ -5195,12 +5195,11 @@ a {
     overflow: visible !important;
   }
 
-  /* Force logo to left edge */
   html body .navbar-dropdown .navbar-brand {
     margin-right: auto !important;
   }
 
-  /* Force toggler button (hamburger/X) to right edge */
+  /* Hamburger / X button */
   html body .navbar-expand-lg .navbar-toggler {
     display: inline-flex !important;
     position: relative !important;
@@ -5210,7 +5209,7 @@ a {
     order: 2 !important;
   }
 
-  /* Full-width container for menu links when expanded */
+  /* Hidden state */
   html body .navbar-expand-lg .navbar-collapse {
     display: none !important;
     width: 100% !important;
@@ -5218,17 +5217,22 @@ a {
     order: 3 !important;
   }
 
-  /* Expanded dropdown menu styling */
+  /* Opened state with solid white card background */
   html body .navbar-expand-lg .navbar-collapse.show {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
     width: 100% !important;
-    padding: 1rem 0 !important;
+    background-color: #ffffff !important; /* Force white background */
+    padding: 1.5rem !important;
+    margin-top: 1rem !important;
+    border-radius: 20px !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1) !important;
   }
 
-  /* Right-align nav links */
+  /* Force links to stay visible and dark text */
   html body .navbar-expand-lg .navbar-collapse.show .navbar-nav {
+    display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
     align-items: flex-end !important;
@@ -5236,6 +5240,7 @@ a {
   }
 
   html body .navbar-expand-lg .navbar-collapse.show .nav-item {
+    display: block !important;
     width: 100% !important;
     text-align: right !important;
     padding: 0.35rem 0 !important;
@@ -5243,10 +5248,13 @@ a {
 
   html body .navbar-expand-lg .navbar-collapse.show .nav-link {
     display: inline-block !important;
+    color: #232323 !important; /* Force dark visible text */
+    opacity: 1 !important;
+    visibility: visible !important;
     text-align: right !important;
   }
 
-  /* Right-align action buttons */
+  /* Right-aligned buttons */
   html body .navbar-expand-lg .navbar-collapse.show .navbar-buttons {
     display: flex !important;
     flex-direction: column !important;
@@ -5256,6 +5264,7 @@ a {
   }
 
   html body .navbar-expand-lg .navbar-collapse.show .btn {
+    display: inline-flex !important;
     margin: 0.35rem 0 !important;
   }
 }
