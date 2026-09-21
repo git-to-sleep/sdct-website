@@ -5183,23 +5183,33 @@ a {
     display: flex !important;
   }
 }
-/* CLEAN RIGHT-ALIGNED MOBIRISE HAMBURGER DROPDOWN OVERRIDE */
+/* CLEAN ROUNDED MOBIRISE HAMBURGER DROPDOWN OVERRIDE */
 @media (max-width: 1300px) {
-  /* Keep top bar elements aligned horizontally in a row */
+  /* Keep outer container rounded with overflow hidden */
+  html body .navbar-dropdown .container,
+  html body .navbar-dropdown .container-fluid,
+  html body .navbar-dropdown {
+    border-radius: 25px !important;
+    overflow: hidden !important;
+  }
+
+  /* Align top bar elements horizontally */
   html body .navbar-dropdown .container,
   html body .navbar-dropdown .container-fluid {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
   }
 
-  /* Force logo to left edge */
+  /* Keep logo on left */
   html body .navbar-dropdown .navbar-brand {
     margin-right: auto !important;
   }
 
-  /* Force toggler button (hamburger/X) to stay in top right corner */
+  /* Keep toggler button (X) inside top right corner */
   html body .navbar-expand-lg .navbar-toggler {
     display: inline-flex !important;
     position: relative !important;
@@ -5217,14 +5227,16 @@ a {
     order: 3 !important;
   }
 
-  /* Expanded menu card styling */
+  /* Expanded menu card styling matching rounded capsule */
   html body .navbar-expand-lg .navbar-collapse.show {
     display: flex !important;
     flex-direction: column !important;
-    align-items: flex-end !important; /* Right-align all contents */
+    align-items: flex-end !important;
     width: 100% !important;
-    padding: 1.5rem 1rem 1rem 1rem !important;
-    background-color: inherit !important;
+    padding: 1.5rem 2rem 2rem 2rem !important;
+    margin-top: 0.5rem !important;
+    border-bottom-left-radius: 25px !important;
+    border-bottom-right-radius: 25px !important;
   }
 
   /* Right-align nav links */
