@@ -5268,3 +5268,20 @@ a {
     margin: 0.35rem 0 !important;
   }
 }
+/* SMOOTH FADE-IN FOR MOBILE DROPDOWN MENU */
+@media (max-width: 1300px) {
+  /* Set initial hidden state for animation */
+  html body .navbar-expand-lg .navbar-collapse {
+    opacity: 0 !important;
+    transform: translateY(-10px) !important;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out !important;
+    pointer-events: none !important;
+  }
+
+  /* Smooth fade-in & slide-down when opened */
+  html body .navbar-expand-lg .navbar-collapse.show {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+    pointer-events: auto !important;
+  }
+}
