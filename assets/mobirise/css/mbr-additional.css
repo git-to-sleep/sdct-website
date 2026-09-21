@@ -5097,3 +5097,24 @@ a {
 .cid-vvMJTp4gHJ .mbr-section-title {
   color: #ffffff;
 }
+/* Force navbar to expand at 1300px instead of 992px */
+@media (max-width: 1300px) {
+  .navbar-expand-lg .navbar-toggler {
+    display: inline-flex !important;
+  }
+  .navbar-expand-lg .navbar-collapse {
+    display: none !important;
+  }
+  .navbar-expand-lg .navbar-collapse.show {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1301px) {
+  .navbar-expand-lg .navbar-toggler {
+    display: none !important;
+  }
+  .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+  }
+}
