@@ -5078,6 +5078,22 @@ a {
   color: #ffffff;
   text-align: center;
 }
+/* FORCE BREAKPOINT AT 1300PX FOR MOBIRISE NAVBAR */
+@media (max-width: 1300px) {
+  .cid-vvMJTp4gHJ .navbar .navbar-collapse,
+  .cid-vvMJTp4gHJ .navbar-collapse {
+    display: none !important;
+  }
+
+  .cid-vvMJTp4gHJ .navbar .navbar-collapse.show,
+  .cid-vvMJTp4gHJ .navbar-collapse.show {
+    display: block !important;
+  }
+
+  .cid-vvMJTp4gHJ .navbar-toggler {
+    display: inline-flex !important;
+  }
+}
 .cid-vvMJTp4gHJ .mbr-section-title {
   color: #ffffff;
 }
