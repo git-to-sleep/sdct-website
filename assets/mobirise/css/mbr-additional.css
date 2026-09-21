@@ -5183,36 +5183,66 @@ a {
     display: flex !important;
   }
 }
-/* FIX OPEN HAMBURGER MENU LAYOUT & VERTICAL STACKING */
+/* CLEAN MOBIRISE HAMBURGER DROPDOWN OVERRIDE */
 @media (max-width: 1300px) {
-  /* Force container to wrap so opened menu sits under the header bar */
+  /* Keep top bar elements aligned horizontally in a row */
   html body .navbar-dropdown .container,
   html body .navbar-dropdown .container-fluid {
+    display: flex !important;
     flex-wrap: wrap !important;
+    align-items: center !important;
+    justify-content: space-between !important;
   }
 
-  /* Force expanded menu to take full width and stack links vertically */
+  /* Force logo to left edge */
+  html body .navbar-dropdown .navbar-brand {
+    margin-right: auto !important;
+  }
+
+  /* Force toggler button (hamburger/X) to stay in top right corner of nav bar */
+  html body .navbar-expand-lg .navbar-toggler {
+    display: inline-flex !important;
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    margin-left: auto !important;
+    order: 2 !important;
+  }
+
+  /* Full-width container for menu links when expanded */
+  html body .navbar-expand-lg .navbar-collapse {
+    display: none !important;
+    width: 100% !important;
+    flex-basis: 100% !important;
+    order: 3 !important;
+  }
+
+  /* Expanded state styling */
   html body .navbar-expand-lg .navbar-collapse.show {
     display: flex !important;
     flex-direction: column !important;
-    width: 100% !important;
-    flex-basis: 100% !important;
     padding-top: 1rem !important;
     padding-bottom: 1rem !important;
+    background-color: inherit !important;
   }
 
-  /* Stack nav items and center/align text */
+  /* Left-align or center-align nav links */
   html body .navbar-expand-lg .navbar-collapse.show .navbar-nav {
     flex-direction: column !important;
     width: 100% !important;
-    text-align: center !important;
+    align-items: flex-start !important;
   }
 
-  /* Center buttons inside the opened menu */
+  html body .navbar-expand-lg .navbar-collapse.show .nav-item {
+    width: 100% !important;
+    padding: 0.25rem 0 !important;
+  }
+
+  /* Buttons formatting inside expanded menu */
   html body .navbar-expand-lg .navbar-collapse.show .navbar-buttons {
     display: flex !important;
     flex-direction: column !important;
-    align-items: center !important;
+    align-items: flex-start !important;
     width: 100% !important;
     margin-top: 1rem !important;
   }
