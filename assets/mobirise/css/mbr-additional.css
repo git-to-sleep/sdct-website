@@ -5118,3 +5118,27 @@ a {
     display: flex !important;
   }
 }
+/* OVERRIDE INLINE MOBIRISE BOOTSTRAP BREAKPOINT */
+@media (max-width: 1300px) {
+  html body .navbar-expand-lg .navbar-toggler {
+    display: inline-flex !important;
+  }
+  
+  html body .navbar-expand-lg .navbar-collapse {
+    display: none !important;
+  }
+
+  html body .navbar-expand-lg .navbar-collapse.show {
+    display: block !important;
+  }
+}
+
+@media (min-width: 1301px) {
+  html body .navbar-expand-lg .navbar-toggler {
+    display: none !important;
+  }
+
+  html body .navbar-expand-lg .navbar-collapse {
+    display: flex !important;
+  }
+}
