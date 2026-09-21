@@ -5183,33 +5183,24 @@ a {
     display: flex !important;
   }
 }
-/* CLEAN ROUNDED MOBIRISE HAMBURGER DROPDOWN OVERRIDE */
+/* CLEAN WORKING HAMBURGER DROPDOWN OVERRIDE */
 @media (max-width: 1300px) {
-  /* Keep outer container rounded with overflow hidden */
-  html body .navbar-dropdown .container,
-  html body .navbar-dropdown .container-fluid,
-  html body .navbar-dropdown {
-    border-radius: 25px !important;
-    overflow: hidden !important;
-  }
-
-  /* Align top bar elements horizontally */
+  /* Ensure container flexes correctly without clipping content */
   html body .navbar-dropdown .container,
   html body .navbar-dropdown .container-fluid {
     display: flex !important;
     flex-wrap: wrap !important;
     align-items: center !important;
     justify-content: space-between !important;
-    padding-left: 1.5rem !important;
-    padding-right: 1.5rem !important;
+    overflow: visible !important;
   }
 
-  /* Keep logo on left */
+  /* Force logo to left edge */
   html body .navbar-dropdown .navbar-brand {
     margin-right: auto !important;
   }
 
-  /* Keep toggler button (X) inside top right corner */
+  /* Force toggler button (hamburger/X) to right edge */
   html body .navbar-expand-lg .navbar-toggler {
     display: inline-flex !important;
     position: relative !important;
@@ -5227,16 +5218,13 @@ a {
     order: 3 !important;
   }
 
-  /* Expanded menu card styling matching rounded capsule */
+  /* Expanded dropdown menu styling */
   html body .navbar-expand-lg .navbar-collapse.show {
     display: flex !important;
     flex-direction: column !important;
     align-items: flex-end !important;
     width: 100% !important;
-    padding: 1.5rem 2rem 2rem 2rem !important;
-    margin-top: 0.5rem !important;
-    border-bottom-left-radius: 25px !important;
-    border-bottom-right-radius: 25px !important;
+    padding: 1rem 0 !important;
   }
 
   /* Right-align nav links */
@@ -5258,7 +5246,7 @@ a {
     text-align: right !important;
   }
 
-  /* Right-align buttons inside expanded menu */
+  /* Right-align action buttons */
   html body .navbar-expand-lg .navbar-collapse.show .navbar-buttons {
     display: flex !important;
     flex-direction: column !important;
